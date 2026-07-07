@@ -1,0 +1,2 @@
+export const TABELOG_RESERVATION_URL =
+  "https://yoyaku.tabelog.com/yoyaku/smartphone/net_booking_form/index?fbclid=PAdGRleAScSY5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadsbBqHsq8C69ZCWpZNWlM5P-CNW5y8d36-gSqN5XV2Ma5qwB2GoifAasyncA_aem_UhtmGJs6R9mMVg7mputFqg&rcd=40063510&utm_content=link_in_bio&utm_medium=social&utm_source=ig";
