@@ -285,7 +285,7 @@ export default function HomePage() {
     }
   })();
 
-  const ambienceImages = ambienceSlidesData.map((s: any) => s.image || "/assets/interior.jpg");
+  const ambienceImages = ambienceSlidesData.map((s: any) => resolveImage(s.image) || "/assets/interior.jpg");
   const [activeAmbience, setActiveAmbience] = useState(0);
 
   useEffect(() => {

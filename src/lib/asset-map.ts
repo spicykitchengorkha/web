@@ -18,7 +18,25 @@ export function resolveImage(keyOrUrl: string | null | undefined): string {
     }
   }
 
-  if (keyOrUrl.startsWith("http")) return keyOrUrl;
+  const defaultApiBase = (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"))
+    ? "http://127.0.0.1:8000/api"
+    : "https://api.spicykitchengorkha.com/api";
+
+  if (keyOrUrl.startsWith("http")) {
+    if (keyOrUrl.includes("localhost") || keyOrUrl.includes("127.0.0.1")) {
+      const apiBase = (process.env.NEXT_PUBLIC_API_URL && process.env.NEXT_PUBLIC_API_URL !== "/api")
+        ? process.env.NEXT_PUBLIC_API_URL
+        : defaultApiBase;
+      if (apiBase.startsWith("http")) {
+        const backendBase = apiBase.replace(/\/api$/, "");
+        const storageIndex = keyOrUrl.indexOf("/storage/");
+        if (storageIndex !== -1) {
+          return `${backendBase}${keyOrUrl.substring(storageIndex)}`;
+        }
+      }
+    }
+    return keyOrUrl;
+  }
 
   if (keyOrUrl.includes("storage/")) {
     let path = keyOrUrl;
@@ -29,7 +47,11 @@ export function resolveImage(keyOrUrl: string | null | undefined): string {
     if (!path.startsWith("storage/")) {
       path = "storage/" + path;
     }
-    return `/${path}`;
+    const apiBase = (process.env.NEXT_PUBLIC_API_URL && process.env.NEXT_PUBLIC_API_URL !== "/api")
+      ? process.env.NEXT_PUBLIC_API_URL
+      : defaultApiBase;
+    const backendBase = apiBase.startsWith("http") ? apiBase.replace(/\/api$/, "") : "";
+    return `${backendBase}/${path}`;
   }
 
   if (keyOrUrl.startsWith("/")) return keyOrUrl;

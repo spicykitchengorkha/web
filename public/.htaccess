@@ -1,0 +1,18 @@
+# Disable directory listing and MultiViews
+Options -Indexes -MultiViews
+
+# Ensure DirectoryIndex resolves to index.html
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteBase /
+
+# Internally rewrite directory requests (e.g., /about/) to index.html to prevent 403 on HEAD requests
+# Uses REQUEST_FILENAME instead of DOCUMENT_ROOT to support addon domains/subdomains on Hostinger
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.*)$ $1/index.html [L]
+
+# Redirect all requests for /storage/ directly to the backend storage
+RewriteCond %{REQUEST_URI} ^/storage/
+RewriteRule ^storage/(.*)$ https://api.spicykitchengorkha.com/storage/$1 [R=301,L]

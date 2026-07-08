@@ -143,36 +143,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* MEET THE CHEF */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <img
-            src="/assets/chef.jpg"
-            alt="Head Chef"
-            className="w-full aspect-[4/5] object-cover rounded-md shadow-2xl"
-          />
-        </div>
-        <div className="space-y-6">
-          <p className="text-[11px] tracking-[0.4em] uppercase text-accent font-bold">
-            {t("Master Culinary Artist", "料理長紹介")}
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground font-light">
-            {t("Chef Jaaditya Jaiswal", "シェフ ジャアディティヤ・ジャイスワル")}
-          </h2>
-          <div className="h-[1px] w-20 bg-accent/40 my-4" />
-          
-          <p className="text-sm text-muted-foreground/80 leading-relaxed font-light">
-            {t(
-              "Born in Lalitpur, Nepal, Chef Jaiswal spent over a decade honing his craft inside fine tandoor houses in Kathmandu and Mumbai. His philosophy is simple: fire and spice require patience. He refuses to rush clay baking, stating that charcoal embers provide a distinct warmth that cannot be replicated by modern gas burners.",
-              "ネパールの古都ラリトプル出身。カトマンズやムンバイの有名ホテルや名門タンドール店で10年以上にわたり腕を磨きました。「火とスパイスには忍耐が必要」というシンプルな哲学のもと、ガス窯を一切使わず、炭火の残り火が放つ独特の赤外線熱でじっくり火を通す製法を貫いています。"
-            )}
-          </p>
-          <p className="text-sm text-muted-foreground/80 leading-relaxed font-light italic">
-            &ldquo;{t("Spices are not just for heat; they are for depth. A good curry should comfort your body and soothe your mind.", "スパイスは単に辛くするものではなく、料理に奥行きを与えるもの。美味しいカレーは身体を温め、心までほぐしてくれるものです。")}&rdquo;
-          </p>
-        </div>
-      </section>
-
       {/* HISTORY TIMELINE */}
       <section className="bg-muted/10 border-t border-border/20 py-20">
         <div className="max-w-5xl mx-auto px-6">
